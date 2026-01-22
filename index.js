@@ -52,6 +52,6 @@ setInterval(() => {
     O_p.textContent = I_tempVal + ' °C';
 }, 2000); // Affichage toute les deux seconds
 
-O_divValue.appendChild(O_p); // Ajout de l'élément p dans la div créé
 
+O_divValue.appendChild(O_p); // Ajout de l'élément p dans la div créé
 O_sectionTempContainer.appendChild(O_divValue);
