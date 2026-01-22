@@ -20,6 +20,8 @@ for (let I_i = 0; I_i < 20; I_i++) {
 let O_divValue = document.createElement('div'); // Création d'un l'élément div
 let O_p = document.createElement('p'); // Création d'un élément p
 
+O_p.textContent = getRandomValInArray(A_temperature) + ' °C';
+O_p.setAttribute('id', 'temp_text');
 
 setInterval(() => {
     let I_tempVal = getRandomValInArray(A_temperature);
