@@ -30,6 +30,8 @@ setInterval(() => {
         O_pMessage.textContent = "Brrrrrrr, un peu froid ce matin, mets ta cagoule !";
     } else if (I_tempVal > 30) {
         O_pMessage.textContent = "Caliente ! Vamos a la playa, ho hoho hoho !";
+    } else {
+        O_pMessage.textContent = '';
     }
     
     let B_bleuBox = I_tempVal >= -10 && I_tempVal <= 0;
