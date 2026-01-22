@@ -1,0 +1,15 @@
+.blue-box {
+    border: solid 2px rgb(64, 100, 218);
+}
+
+.green-box {
+    border: solid 2px rgb(18, 149, 18)
+}
+
+.orange-box {
+    border: solid 2px rgb(204, 143, 29);
+}
+
+.red-box {
+    border: solid 2px rgb(176, 29, 29);;
+}
