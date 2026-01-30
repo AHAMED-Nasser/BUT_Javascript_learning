@@ -3,7 +3,7 @@ let A_temperature = [];
 const O_sectionTempContainer = document.getElementById("temp-container");
 const O_pMessage = document.getElementById('message');
 const O_devTempBox = document.getElementById('temp-box');
-const O_pTempVal = document.getElementById('temp-text');
+const O_TempVal = document.getElementById('temp-val');
 
 // add random number
 function getRandomInterval(min, max) {
@@ -19,7 +19,11 @@ for (let I_i = 0; I_i < 20; I_i++) {
     A_temperature.push(getRandomInterval(-10, 40));
 }
 
-O_pTempVal.textContent = getRandomValInArray(A_temperature) + ' °C';
+let S_unitTemp = '°C';
+
+O_TempVal.textContent = getRandomValInArray(A_temperature) + ' ' + S_unitTemp;
+O_TempVal.dataset.value = getRandomValInArray(A_temperature);
+O_TempVal.dataset.unity = S_unitTemp
 
 setInterval(() => {
     let I_tempVal = getRandomValInArray(A_temperature);
@@ -47,9 +51,13 @@ setInterval(() => {
         O_devTempBox.setAttribute('class', 'red-box');
     }
 
-    O_pTempVal.textContent = I_tempVal + ' °C';
+    let S_tempAndUnit = I_tempVal + ' ' + S_unitTemp;
+
+    O_TempVal.textContent = S_tempAndUnit;
+    O_TempVal.dataset.value = I_tempVal;
+    O_TempVal.dataset.unity = S_unitTemp;
 }, 2000); // Affichage toute les deux seconds
 
 
-O_devTempBox.appendChild(O_pTempVal); // Ajout de l'élément p dans la div créé
+O_devTempBox.appendChild(O_TempVal); // Ajout de l'élément p dans la div créé
 O_sectionTempContainer.appendChild(O_devTempBox);
