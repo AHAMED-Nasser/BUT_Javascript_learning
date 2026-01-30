@@ -9,18 +9,6 @@ const O_TempVal = document.getElementById('temp-val');
 const O_buttonCurrentTemp = document.getElementById('home');
 const O_buttonHistoryTemp = document.getElementById('history');
 
-O_sectionHistoryTemp.classList.add('hidden');
-O_sectionTempContainer.classList.remove('hidden');
-
-O_buttonCurrentTemp.addEventListener("click", () => {
-    O_sectionHistoryTemp.classList.add('hidden');
-    O_sectionTempContainer.classList.remove('hidden');
-});
-
-O_buttonHistoryTemp.addEventListener("click", () => {
-    O_sectionTempContainer.classList.add('hidden');
-    O_sectionHistoryTemp.classList.remove('hidden');
-});
 
 
 // add random number

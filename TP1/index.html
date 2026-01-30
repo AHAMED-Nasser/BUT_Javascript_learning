@@ -6,10 +6,16 @@
         <link href="index.css" rel="stylesheet">
     </head>
     <body>
-        <nav>
-            <button id="home">Accueil</a>
-            <button id="history">Historique</a>
+
+        <nav role="tablist-1" aria-labelledby="tablist-1" class="manual">
+            <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+                <span class="focus">Accueil</span>
+            </button>
+            <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2">
+                <span class="focus">Historique</span>
+            </button>
         </nav>
+
         <main>
             <section id="temp-container" role="dialog" aria-labelledby="dialogTitre" aria-describedby="message" class="">
                 <h2 id="dialogTitreHome">Température actuelle</h2>
