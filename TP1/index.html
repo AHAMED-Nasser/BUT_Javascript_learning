@@ -6,14 +6,33 @@
         <link href="index.css" rel="stylesheet">
     </head>
     <body>
-        <main>
-            <h1>Température</h1>
 
-            <p id="message"></p>
-            <section id="temp-container">
+        <nav role="tablist-1" aria-labelledby="tablist-1" class="manual">
+            <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+                <span class="focus">Accueil</span>
+            </button>
+            <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2">
+                <span class="focus">Historique</span>
+            </button>
+        </nav>
+
+        <main>
+            <section id="temp-container" role="dialog" aria-labelledby="dialogTitre" aria-describedby="message" class="">
+                <h2 id="dialogTitreHome">Température actuelle</h2>
+                <p id="message" aria-disabled="true" aria-live="assertive" role="alert" class="hidden"></p>
                 <div id="temp-box">
                     <data id="temp-val" data-value="" data-unity=""></data>
                 </div>
+            </section>
+
+            <section id="temp-history" role="dialog" aria-labelledby="dialogTitre" aria-describedby="temp-val-history" class="">
+                <h2 id="dialogTitreHistory">Historique des température</h2>
+                <div id="temp-box-history">
+                    <data id="temp-val-history" data-value="" data-unity=""></data>
+                </div>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum sit nam modi, voluptates officiis quis ab incidunt voluptatem qui delectus, sint dolor, quam magni possimus? Velit hic culpa iusto deserunt?
+                </p>
             </section>
         </main>
         
