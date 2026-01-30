@@ -1,9 +1,27 @@
 let A_temperature = [];
 
 const O_sectionTempContainer = document.getElementById("temp-container");
+const O_sectionHistoryTemp = document.getElementById('temp-history');
 const O_pMessage = document.getElementById('message');
 const O_devTempBox = document.getElementById('temp-box');
 const O_TempVal = document.getElementById('temp-val');
+
+const O_buttonCurrentTemp = document.getElementById('home');
+const O_buttonHistoryTemp = document.getElementById('history');
+
+O_sectionHistoryTemp.classList.add('hidden');
+O_sectionTempContainer.classList.remove('hidden');
+
+O_buttonCurrentTemp.addEventListener("click", () => {
+    O_sectionHistoryTemp.classList.add('hidden');
+    O_sectionTempContainer.classList.remove('hidden');
+});
+
+O_buttonHistoryTemp.addEventListener("click", () => {
+    O_sectionTempContainer.classList.add('hidden');
+    O_sectionHistoryTemp.classList.remove('hidden');
+});
+
 
 // add random number
 function getRandomInterval(min, max) {
@@ -30,10 +48,13 @@ setInterval(() => {
 
     if (I_tempVal < 0) {
         O_pMessage.textContent = "Brrrrrrr, un peu froid ce matin, mets ta cagoule !";
+        O_pMessage.classList.remove('hidden');
     } else if (I_tempVal > 30) {
         O_pMessage.textContent = "Caliente ! Vamos a la playa, ho hoho hoho !";
+        O_pMessage.classList.remove('hidden');
     } else {
         O_pMessage.textContent = '';
+        O_pMessage.classList.add('hidden');
     }
     
     let B_bleuBox = I_tempVal >= -10 && I_tempVal <= 0;
@@ -58,6 +79,4 @@ setInterval(() => {
     O_TempVal.dataset.unity = S_unitTemp;
 }, 2000); // Affichage toute les deux seconds
 
-
-O_devTempBox.appendChild(O_TempVal); // Ajout de l'élément p dans la div créé
 O_sectionTempContainer.appendChild(O_devTempBox);
