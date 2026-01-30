@@ -1,7 +1,9 @@
 let A_temperature = [];
 
-const O_sectionTempContainer = document.getElementById("temp_container");
+const O_sectionTempContainer = document.getElementById("temp-container");
 const O_pMessage = document.getElementById('message');
+const O_devTempBox = document.getElementById('temp-box');
+const O_pTempVal = document.getElementById('temp-text');
 
 // add random number
 function getRandomInterval(min, max) {
@@ -17,11 +19,7 @@ for (let I_i = 0; I_i < 20; I_i++) {
     A_temperature.push(getRandomInterval(-10, 40));
 }
 
-let O_divValue = document.createElement('div'); // Création d'un l'élément div
-let O_p = document.createElement('p'); // Création d'un élément p
-
-O_p.textContent = getRandomValInArray(A_temperature) + ' °C';
-O_p.setAttribute('id', 'temp_text');
+O_pTempVal.textContent = getRandomValInArray(A_temperature) + ' °C';
 
 setInterval(() => {
     let I_tempVal = getRandomValInArray(A_temperature);
@@ -40,18 +38,18 @@ setInterval(() => {
     let B_redBox = I_tempVal > 30 && I_tempVal <= 40;
 
     if (B_bleuBox) {
-        O_divValue.setAttribute('class', 'blue-box');
+        O_devTempBox.setAttribute('class', 'blue-box');
     } else if (B_greenBox) {
-        O_divValue.setAttribute('class', 'green-box');
+        O_devTempBox.setAttribute('class', 'green-box');
     } else if (B_orangeBox) {
-        O_divValue.setAttribute('class', 'orange-box');
+        O_devTempBox.setAttribute('class', 'orange-box');
     } else if (B_redBox) {
-        O_divValue.setAttribute('class', 'red-box');
+        O_devTempBox.setAttribute('class', 'red-box');
     }
 
-    O_p.textContent = I_tempVal + ' °C';
+    O_pTempVal.textContent = I_tempVal + ' °C';
 }, 2000); // Affichage toute les deux seconds
 
 
-O_divValue.appendChild(O_p); // Ajout de l'élément p dans la div créé
-O_sectionTempContainer.appendChild(O_divValue);
+O_devTempBox.appendChild(O_pTempVal); // Ajout de l'élément p dans la div créé
+O_sectionTempContainer.appendChild(O_devTempBox);

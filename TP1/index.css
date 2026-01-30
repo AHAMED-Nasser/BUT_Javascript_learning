@@ -18,16 +18,17 @@ body {
     border: solid 2px rgb(255, 0, 0);
 }
 
-#temp_container {
+#temp-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#temp_text {
-    padding: 17px 50px;
+#temp-box {
+    padding: 20px;
     font-weight: bold;
     font-size: 1.4rem;
+    border-radius: 10px;
 }
 
 #message {
