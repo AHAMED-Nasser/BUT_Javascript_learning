@@ -3,6 +3,7 @@ import { TabsManual } from "./tab.js";
 let A_temperature = [];
 
 const O_sectionTempContainer = document.getElementById("temp-container");
+const O_sectionHistoryTemp = document.getElementById('temp-history');
 const O_pMessage = document.getElementById('message');
 const O_devTempBox = document.getElementById('temp-box');
 const O_TempVal = document.getElementById('temp-val');
