@@ -1,39 +1,94 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
+.tabs {
+  font-family: "lucida grande", sans-serif;
 }
 
-h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+[role="tablist"] {
+  min-width: 100%;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+[role="tab"],
+[role="tab"]:focus,
+[role="tab"]:hover {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  top: 2px;
+  margin: 0;
+  margin-top: 4px;
+  padding: 3px 3px 4px;
+  border: 1px solid hsl(219deg 1% 72%);
+  border-bottom: 2px solid hsl(219deg 1% 72%);
+  border-radius: 5px 5px 0 0;
+  background: hsl(220deg 20% 94%);
+  outline: none;
+  font-weight: bold;
+  max-width: 22%;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
 }
 
-nav a {
-    padding: 30px;
+[role="tab"][aria-selected="true"] {
+  padding: 2px 2px 4px;
+  margin-top: 0;
+  border-width: 2px;
+  border-top-width: 6px;
+  border-top-color: rgb(36 116 214);
+  border-bottom-color: hsl(220deg 43% 99%);
+  background: hsl(220deg 43% 99%);
 }
+
+[role="tab"][aria-selected="false"] {
+  border-bottom: 1px solid hsl(219deg 1% 72%);
+}
+
+[role="tab"] span.focus {
+  display: inline-block;
+  margin: 2px;
+  padding: 4px 6px;
+}
+
+[role="tab"]:hover span.focus,
+[role="tab"]:focus span.focus,
+[role="tab"]:active span.focus {
+  padding: 2px 4px;
+  border: 2px solid rgb(36 116 214);
+  border-radius: 3px;
+}
+
+[role="tabpanel"] {
+  padding: 5px;
+  border: 2px solid hsl(219deg 1% 72%);
+  border-radius: 0 5px 5px;
+  background: hsl(220deg 43% 99%);
+  min-height: 10em;
+  width: 100%;
+  overflow: auto;
+}
+
+[role="tabpanel"].is-hidden {
+  display: none;
+}
+
+[role="tabpanel"] p {
+  margin: 0;
+}
+
 
 .blue-box {
-    border: solid 2px rgb(0, 60, 255);
+    border: solid 2px rgb(22, 72, 238);
 }
 
 .green-box {
-    border: solid 2px rgb(0, 255, 0)
+    border: solid 2px rgb(41, 181, 41)
 }
 
 .orange-box {
-    border: solid 2px rgb(255, 166, 0);
+    border: solid 2px rgb(247, 165, 13);
 }
 
 .red-box {
-    border: solid 2px rgb(255, 0, 0);
+    border: solid 2px rgb(237, 56, 56);
 }
 
 #temp-container {
@@ -59,4 +114,10 @@ nav a {
 
 .hidden {
     display: none;
+}
+
+#history-list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
 }

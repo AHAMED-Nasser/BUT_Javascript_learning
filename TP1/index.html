@@ -7,16 +7,18 @@
     </head>
     <body>
 
-        <nav role="tablist-1" aria-labelledby="tablist-1" class="manual">
+        <div class="tabs">
+        <h3 id="tablist-1">Température aléatoire</h3>
+        <div role="tablist" aria-labelledby="tablist-1" class="manual">
             <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
-                <span class="focus">Accueil</span>
+                <span class="focus">Température actuelle</span>
             </button>
-            <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2">
+            <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
                 <span class="focus">Historique</span>
             </button>
-        </nav>
+        </div>
 
-        <main>
+        <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
             <section id="temp-container" role="dialog" aria-labelledby="dialogTitre" aria-describedby="message" class="">
                 <h2 id="dialogTitreHome">Température actuelle</h2>
                 <p id="message" aria-disabled="true" aria-live="assertive" role="alert" class="hidden"></p>
@@ -24,18 +26,18 @@
                     <data id="temp-val" data-value="" data-unity=""></data>
                 </div>
             </section>
-
+        </div>
+        <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
             <section id="temp-history" role="dialog" aria-labelledby="dialogTitre" aria-describedby="temp-val-history" class="">
-                <h2 id="dialogTitreHistory">Historique des température</h2>
+                <h2 id="dialogTitreHistory">Historique des températures</h2>
                 <div id="temp-box-history">
                     <data id="temp-val-history" data-value="" data-unity=""></data>
                 </div>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum sit nam modi, voluptates officiis quis ab incidunt voluptatem qui delectus, sint dolor, quam magni possimus? Velit hic culpa iusto deserunt?
-                </p>
+                <div id="history-list">
+                </div>
             </section>
-        </main>
+        </div>
         
-        <script src="index.js"></script>
+        <script type="module" src="index.js"></script>
     </body>
 </html>
