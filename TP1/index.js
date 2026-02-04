@@ -1,4 +1,5 @@
 import { TabsManual } from "./tab.js";
+import { CurrentTemp } from "./metier/CurrentTemp.js";
 
 let A_temperature = [];
 
@@ -7,8 +8,9 @@ const O_pMessage = document.getElementById('message');
 const O_devTempBox = document.getElementById('temp-box');
 const O_TempVal = document.getElementById('temp-val');
 
-
 const O_historyList = document.getElementById('history-list');
+
+let O_currentTemp = new CurrentTemp(O_devTempBox, O_TempVal, O_pMessage);
 
 // add random number
 function getRandomInterval(min, max) {
@@ -24,56 +26,19 @@ for (let I_i = 0; I_i < 20; I_i++) {
     A_temperature.push(getRandomInterval(-10, 40));
 }
 
-let S_unitTemp = '°C';
+
 
 O_TempVal.textContent = getRandomValInArray(A_temperature) + ' ' + S_unitTemp;
 O_TempVal.dataset.value = getRandomValInArray(A_temperature);
-O_TempVal.dataset.unity = S_unitTemp
+O_TempVal.dataset.unity = S_unitTemp;
 
 setInterval(() => {
+
+    
     const O_dataTemperature = document.createElement('data')
     O_dataTemperature.style.padding = "10px";
-
-
-    let I_tempVal = getRandomValInArray(A_temperature);
-
-    if (I_tempVal < 0) {
-        O_pMessage.textContent = "Brrrrrrr, un peu froid ce matin, mets ta cagoule !";
-        O_pMessage.classList.remove('hidden');
-    } else if (I_tempVal > 30) {
-        O_pMessage.textContent = "Caliente ! Vamos a la playa, ho hoho hoho !";
-        O_pMessage.classList.remove('hidden');
-    } else {
-        O_pMessage.textContent = '';
-        O_pMessage.classList.add('hidden');
-    }
     
-    let B_bleuBox = I_tempVal >= -10 && I_tempVal <= 0;
-    let B_greenBox = I_tempVal > 0 && I_tempVal <= 20;
-    let B_orangeBox = I_tempVal > 20 && I_tempVal <= 30;
-    let B_redBox = I_tempVal > 30 && I_tempVal <= 40;
-
-    if (B_bleuBox) {
-        O_devTempBox.setAttribute('class', 'blue-box');
-        O_dataTemperature.setAttribute('class', 'blue-box');
-    } else if (B_greenBox) {
-        O_devTempBox.setAttribute('class', 'green-box');
-        O_dataTemperature.setAttribute('class', 'green-box');
-    } else if (B_orangeBox) {
-        O_devTempBox.setAttribute('class', 'orange-box');
-        O_dataTemperature.setAttribute('class', 'orange-box');
-    } else if (B_redBox) {
-        O_devTempBox.setAttribute('class', 'red-box');
-        O_dataTemperature.setAttribute('class', 'red-box');
-    }
-
-    let S_tempAndUnit = I_tempVal + ' ' + S_unitTemp;
-
-    O_TempVal.textContent = S_tempAndUnit;
-    O_TempVal.dataset.value = I_tempVal;
-    O_TempVal.dataset.unity = S_unitTemp;
-
-    // Création d'une balise data qui stocke les température
+    O_currentTemp.displayTemp(getRandomValInArray(A_temperature));
     
     O_dataTemperature.setAttribute('id', 'temp-val-hist');
     O_dataTemperature.textContent = S_tempAndUnit;
